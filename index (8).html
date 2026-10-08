@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manan Khan · Shopify designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#080B0F;--surface:#121821;--glass:rgba(255,255,255,.07);--line:rgba(255,255,255,.12);--ink:#F8FAFC;--muted:#94A3B8;--pri:#22D3EE;--sec:#A3E635;--onpri:#032028}
+:root{color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 'Hanken Grotesk',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.02;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--pri);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 20px 'Bricolage Grotesque';text-decoration:none}
+.logo i{color:var(--pri);font-style:normal}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
+nav ul a{text-decoration:none}nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--pri);color:var(--onpri);font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:15px}
+.btn.ghost{background:var(--glass);color:var(--ink);border:1px solid var(--line)}
+.hero{position:relative;min-height:calc(100svh - 60px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;overflow:hidden}
+.stage{position:relative;align-self:stretch;min-height:560px}
+#c{position:absolute;inset:0;display:block;width:100%;height:100%}
+.txt{position:relative;z-index:2;padding:40px 24px 60px max(24px,calc((100vw - 1180px)/2))}
+.hero h1{font-size:clamp(38px,5.4vw,84px);font-weight:800;max-width:11ch}
+.hero p{max-width:44ch;color:var(--muted);font-size:18px;margin:22px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.live{position:absolute;z-index:2;right:24px;bottom:28px;text-align:right;font-size:14px;color:var(--muted)}
+.live b{display:block;font:700 26px 'Bricolage Grotesque';color:var(--ink)}
+.live span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sec);margin-right:8px;box-shadow:0 0 0 0 var(--sec);animation:p 2s infinite}
+@keyframes p{70%{box-shadow:0 0 0 9px transparent}}
+.hint{position:absolute;z-index:2;left:24px;bottom:28px;font-size:13px;color:var(--muted)}
+section{padding:110px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.sh h2{font-size:clamp(32px,4.6vw,60px);max-width:16ch}
+.sh p{max-width:38ch;color:var(--muted);margin:0}
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.card{grid-column:span 2;border-radius:26px;padding:26px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease-out,box-shadow .25s}
+.card:nth-child(1){grid-column:span 3;min-height:420px}.card:nth-child(2){grid-column:span 3;min-height:420px}
+.card .nm{font:800 clamp(30px,3.4vw,46px)/1 'Bricolage Grotesque';letter-spacing:-.03em}
+.card .meta{font-size:14px;opacity:.78;margin-top:8px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags span{padding:5px 12px;border-radius:999px;font-size:12.5px;border:1px solid currentColor;opacity:.85}
+.blob{position:absolute;right:-50px;top:-50px;width:230px;height:230px;border-radius:50%;opacity:.9;transform:translateZ(40px);transition:transform .3s}
+.card:hover .blob{transform:translateZ(40px) scale(1.15)}
+.card:hover{box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.cro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.tabs{display:grid;gap:10px}
+.tab{text-align:left;padding:18px 22px;border-radius:18px;background:var(--glass);border:1px solid var(--line);color:var(--ink);cursor:pointer;font:inherit}
+.tab b{display:block;font:700 19px 'Bricolage Grotesque'}
+.tab small{display:none;color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.5}
+.tab[aria-selected=true]{border-color:var(--pri);background:color-mix(in srgb,var(--pri) 12%,transparent)}
+.tab[aria-selected=true] small{display:block}
+.phone{width:min(300px,100%);margin:0 auto;border-radius:36px;border:1px solid var(--line);background:var(--surface);padding:16px;display:grid;gap:10px;box-shadow:0 40px 80px -30px rgba(34,211,238,.25)}
+.blk{border-radius:14px;background:var(--glass);border:1px dashed transparent;padding:10px 12px;font-size:12.5px;color:var(--muted);transition:all .35s}
+.blk.on{border-color:var(--pri);color:var(--ink);background:color-mix(in srgb,var(--pri) 14%,transparent);transform:scale(1.04)}
+.img{height:120px;border-radius:14px;background:linear-gradient(135deg,var(--glass),transparent),repeating-linear-gradient(45deg,var(--line) 0 1px,transparent 1px 10px)}
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.proc div{padding:24px;border-left:1px solid var(--line)}
+.proc h3{font-size:22px;margin-bottom:10px}.proc p{margin:0;color:var(--muted);font-size:15px}
+.end{text-align:center;padding:140px 0 90px;position:relative}
+.end h2{font-size:clamp(38px,7vw,96px);max-width:14ch;margin:0 auto 30px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.stage{height:64svh;min-height:400px;align-self:auto}.txt{padding:36px 24px 8px}nav ul{display:none}.card,.card:nth-child(1),.card:nth-child(2){grid-column:span 6;min-height:300px}.cro{grid-template-columns:1fr}.proc{grid-template-columns:1fr 1fr}.hint{display:none}.live{left:24px;text-align:left;bottom:20px}section{padding:80px 0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:56px;padding-bottom:20px}
+.nums div{border-left:1px solid var(--line);padding-left:20px}
+.nums b{display:block;font:800 clamp(44px,5.4vw,80px)/1 'Bricolage Grotesque';color:var(--pri)}
+.nums span{color:var(--muted);font-size:14.5px;display:block;max-width:22ch;margin-top:8px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+button.card{border:0;cursor:pointer;text-align:left;font:inherit;width:100%}
+.card .read{font-size:14px;font-weight:600;display:inline-flex;gap:10px;align-items:center;margin-top:16px}
+.card .read:after{content:"";width:28px;height:2px;background:currentColor;transition:width .3s}
+.card:hover .read:after{width:56px}
+.ov{position:fixed;inset:0;z-index:20;overflow:auto;display:none;background:var(--b);color:var(--f);clip-path:circle(0 at var(--x,50%) var(--y,50%))}
+.ov.open{display:block;animation:rev .75s cubic-bezier(.7,0,.2,1) forwards}
+.ov.closing{animation:rev .45s cubic-bezier(.7,0,.2,1) reverse forwards}
+@keyframes rev{to{clip-path:circle(150% at var(--x,50%) var(--y,50%))}}
+@keyframes inn{to{opacity:1;transform:none}}
+.ovx{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:20px;z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid color-mix(in srgb,var(--f) 35%,transparent);background:var(--b);color:var(--f);font-size:18px;cursor:pointer}
+.ovi{max-width:1180px;margin:0 auto;padding:100px 24px 80px;display:grid;grid-template-columns:1fr 1.1fr;gap:64px}
+.ovi .l>*{opacity:0;transform:translateY(24px);animation:inn .7s forwards;animation-delay:calc(var(--d,0)*100ms + .45s)}
+.ovi h2{font-size:clamp(56px,9vw,132px);margin:6px 0 22px;letter-spacing:-.04em}
+.ovi .mk{margin:0;font-size:15px;opacity:.75}
+.ovi .lead{font-size:clamp(18px,1.8vw,23px);line-height:1.5;margin:0 0 16px}
+.ovi .mot{opacity:.75;margin:0 0 22px;max-width:44ch}
+.sw{display:flex;gap:10px;margin-bottom:28px}.sw i{width:46px;height:46px;border-radius:50%;border:1px solid color-mix(in srgb,var(--f) 30%,transparent)}
+.ovr{display:flex;gap:12px;flex-wrap:wrap}
+.ovr .ghost{background:transparent;color:var(--f);border:1px solid color-mix(in srgb,var(--f) 40%,transparent)}
+.secs{list-style:none;margin:0;padding:0;counter-reset:n}
+.secs li{position:relative;padding:18px 0 18px 46px;border-bottom:1px solid color-mix(in srgb,var(--f) 16%,transparent);opacity:0;transform:translateX(30px);animation:inn .6s forwards;animation-delay:calc(var(--i)*110ms + .7s);counter-increment:n}
+.secs li:before{content:counter(n);position:absolute;left:0;top:18px;width:30px;height:30px;border-radius:50%;background:var(--a);color:var(--b);font:700 14px/30px 'Bricolage Grotesque';text-align:center;transition:transform .3s}
+.secs li:hover:before{transform:scale(1.25)}
+.secs b{display:block;font:700 21px 'Bricolage Grotesque'}
+.secs span{display:block;font-size:15px;opacity:.78;margin-top:4px;max-width:52ch}
+.ana{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--ink);cursor:pointer;font:inherit;font-size:14px}
+.chip[aria-pressed=true]{background:var(--pri);color:var(--onpri);border-color:transparent}
+.scene{perspective:1500px;height:560px;display:grid;place-items:center}
+.stack{position:relative;width:290px;height:330px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-32deg);transition:transform .25s}
+.ly{position:absolute;inset:0;border-radius:18px;padding:14px 16px;font:700 16px 'Bricolage Grotesque';background:color-mix(in srgb,var(--lb) calc(100% - var(--k)*9%),var(--la));color:var(--lf);border:1px solid color-mix(in srgb,var(--lf) 22%,transparent);transform:translateZ(calc(var(--i)*5px));transition:transform 1s cubic-bezier(.2,.8,.2,1),background .5s,box-shadow .3s;cursor:pointer}
+.ly:before{content:"";position:absolute;right:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--la)}
+.spread .ly{transform:translateZ(calc(var(--i)*54px))}
+.spread .ly.sel{transform:translateZ(calc(var(--i)*54px + 26px));box-shadow:0 0 0 2px var(--la),0 24px 60px -6px var(--la)}
+.alist{list-style:none;margin:0;padding:0}
+.ai{display:block;width:100%;text-align:left;padding:14px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);color:var(--ink);font:inherit;cursor:pointer;margin-bottom:8px;transition:border-color .3s,background .3s}
+.ai b{font:700 18px 'Bricolage Grotesque'}.ai small{display:none;color:var(--muted);font-size:14.5px;margin-top:4px;line-height:1.5}
+.ai[aria-pressed=true]{border-color:var(--pri);background:color-mix(in srgb,var(--pri) 12%,transparent)}.ai[aria-pressed=true] small{display:block}
+.cro2{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:64px;align-items:start}
+.phone2{position:relative;width:min(360px,100%);height:610px;margin:0 auto;border-radius:36px;overflow:hidden;border:1px solid var(--line);background:var(--bg);box-shadow:0 50px 90px -40px color-mix(in srgb,var(--pri) 50%,transparent);--p:0}
+.lay{position:absolute;inset:0;padding:16px;display:grid;gap:9px;align-content:start}
+.after{background:var(--bg);clip-path:inset(0 calc(100% - var(--p)*1%) 0 0)}
+.tg{justify-self:start;font-size:11.5px;padding:2px 11px;border-radius:999px;background:var(--glass);border:1px solid var(--line);color:var(--muted)}
+.g{border-radius:10px;background:var(--glass)}
+.img2{height:104px;border-radius:14px;background:linear-gradient(135deg,color-mix(in srgb,var(--pri) 28%,transparent),transparent),var(--glass)}
+.b2{border-radius:12px;padding:10px 12px;font-size:12.5px;color:var(--muted);background:var(--glass);border:1px solid transparent;transition:all .4s}
+.b2.on{border-color:var(--pri);color:var(--ink);background:color-mix(in srgb,var(--pri) 16%,transparent);transform:scale(1.03)}
+.hd{position:absolute;top:0;bottom:0;left:calc(var(--p)*1%);width:2px;background:var(--pri);pointer-events:none}
+.hd:after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--pri);color:var(--onpri);text-align:center;line-height:38px;font-weight:700}
+#sl{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.mods{display:grid;gap:10px}
+.mod{text-align:left;padding:18px 22px;border-radius:18px;background:var(--glass);border:1px solid var(--line);color:var(--ink);cursor:pointer;font:inherit}
+.mod>b{display:block;font:700 20px 'Bricolage Grotesque'}
+.mod .dt{display:none;gap:10px;margin-top:12px}
+.mod .dt p{margin:0;font-size:14.5px;color:var(--muted)}.mod .dt b{color:var(--ink);font-weight:600}
+.mod[aria-expanded=true]{border-color:var(--pri);background:color-mix(in srgb,var(--pri) 12%,transparent)}
+.mod[aria-expanded=true] .dt{display:grid}
+.live2{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}.ana,.cro2,.ovi{grid-template-columns:1fr}.ovi{gap:36px;padding-top:84px}.scene{height:420px}.stack{width:230px;height:270px}.cro2{gap:36px}}
+@media (prefers-reduced-motion:reduce){.rv,.secs li,.ovi .l>*{opacity:1!important;transform:none!important}.ov.open{clip-path:none!important}.spread .ly{transition:none!important}}
+.scene{perspective:1500px;height:620px;display:grid;place-items:end center;padding-bottom:90px;position:relative;z-index:0}
+.chips{position:relative;z-index:2}
+.ly{display:flex;align-items:flex-end;font-size:14px}
+.spread .ly{transform:translateZ(calc(var(--i)*42px))}
+.spread .ly.sel{transform:translateZ(calc(var(--i)*42px + 22px));box-shadow:0 0 0 2px var(--la),0 24px 60px -6px var(--la)}
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mdl{border-radius:26px;padding:28px;background:var(--surface);border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;gap:14px}
+.mdl h3{font-size:30px}.mdl p{margin:0;color:var(--muted);font-size:15px}
+.flow{display:flex;align-items:center;gap:8px;font-size:12.5px;margin-top:auto;flex-wrap:wrap}
+.flow span{padding:6px 12px;border-radius:999px;background:var(--glass);border:1px solid var(--line)}
+.flow i{flex:1;min-width:18px;height:2px;background:var(--line);position:relative;overflow:hidden}
+.flow i:after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--pri);animation:run 2.2s linear infinite}
+@keyframes run{to{left:100%}}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;margin-top:56px}
+.mq div{display:flex;width:max-content;animation:mq 34s linear infinite;font:700 clamp(22px,3vw,34px) 'Bricolage Grotesque';color:var(--muted)}
+.mq span:after{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pri);margin:0 44px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sample{display:inline-block;padding:4px 14px;border-radius:999px;background:color-mix(in srgb,var(--sec) 18%,transparent);color:var(--sec);font-size:13.5px}
+.cmp{position:relative;height:min(560px,72vw);min-height:360px;border-radius:26px;overflow:hidden;border:1px solid var(--line);--p:50;margin-top:28px}
+.cmp .side{position:absolute;inset:0;background:var(--surface) center top/cover no-repeat;display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px}
+.cmp .side b{display:block;font:700 28px 'Bricolage Grotesque';color:var(--ink)}
+.cmp .aft{clip-path:inset(0 calc(100% - var(--p)*1%) 0 0);background-color:color-mix(in srgb,var(--pri) 12%,var(--surface))}
+.cmp .side.has div{display:none}
+.rng{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.upl{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;align-items:center}.upl small{color:var(--muted)}
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.dc{border-radius:24px;background:var(--bg);border:1px solid var(--line);padding:22px;position:relative;overflow:hidden}
+.dc.af{border-color:var(--pri)}
+.dc h4{margin:0;font:600 14px 'Hanken Grotesk';color:var(--muted)}
+.dc .big{font:800 clamp(36px,4.4vw,56px)/1.1 'Bricolage Grotesque';margin:6px 0 2px}
+.dc svg{width:100%;height:170px;display:block;margin-top:10px}
+.dc .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.tile{border-radius:14px;background:var(--glass);padding:10px 12px}.tile b{display:block;font:700 18px 'Bricolage Grotesque'}.tile span{font-size:12.5px;color:var(--muted)}
+.wm{position:absolute;inset:0;display:grid;place-items:center;font:800 64px 'Bricolage Grotesque';opacity:.05;transform:rotate(-14deg);pointer-events:none}
+.up{color:var(--sec);font-weight:600}
+.dl{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.dl span{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);font-size:14.5px}
+@media (max-width:820px){.scene{height:480px;padding-bottom:60px}.models,.dash{grid-template-columns:1fr}}
+.card{cursor:pointer}
+.card:nth-child(6),.card:nth-child(7){grid-column:span 3;min-height:380px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.card .read{margin:0;background:transparent;border:1px solid currentColor;color:inherit;border-radius:999px;padding:10px 18px;font:600 14px 'Hanken Grotesk';cursor:pointer}
+.card .read:after{display:none}
+.vis{padding:10px 18px;border-radius:999px;font:700 14px 'Hanken Grotesk';text-decoration:none;position:relative;transition:transform .2s;transform:translateZ(30px)}
+.vis:hover{transform:translateY(-2px) scale(1.05)}
+.vis:before{content:"";position:absolute;inset:-4px;border-radius:inherit;border:2px solid currentColor;opacity:0;animation:ring 2.4s infinite}
+@keyframes ring{0%{opacity:.5;transform:scale(.96)}100%{opacity:0;transform:scale(1.18)}}
+.scene{perspective:1400px;height:auto;display:block;padding:24px 4px 10px;position:relative;z-index:0}
+.pg{max-width:500px;margin:0 auto;padding:12px;border-radius:22px;border:1px solid var(--line);background:color-mix(in srgb,var(--lb) 55%,var(--bg));transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);transition:transform .25s}
+.sc{position:relative;background:var(--lb);color:var(--lf);border:1px solid color-mix(in srgb,var(--lf) 15%,transparent);border-radius:14px;padding:14px;margin-bottom:8px;cursor:pointer;overflow:hidden;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .4s,box-shadow .4s}
+.sc:nth-child(even){background:color-mix(in srgb,var(--lb) 90%,var(--la))}
+.sc .tag{position:absolute;right:10px;top:8px;font:600 11px 'Hanken Grotesk';padding:2px 9px;border-radius:999px;background:var(--la);color:var(--lb)}
+.pg.exp .sc{transform:translateZ(calc(var(--i)*26px)) translateY(calc(var(--i)*8px))}
+.pg.has .sc:not(.sel){opacity:.5}
+.sc.sel{transform:translateZ(36px) scale(1.02);box-shadow:0 0 0 2px var(--la),0 24px 50px -14px var(--la)}
+.pg.exp .sc.sel{transform:translateZ(calc(var(--i)*26px + 36px)) translateY(calc(var(--i)*8px)) scale(1.02)}
+.pg u{display:block;text-decoration:none;height:7px;border-radius:4px;background:color-mix(in srgb,var(--lf) 22%,transparent);margin:6px 0;width:70%}
+.pg u.s{width:45%}.pg u.p{width:85%}.pg u.pr{width:35%;background:var(--la)}.pg u.h1{height:16px;width:78%;background:var(--lf)}.pg u.bt{height:22px;width:92px;border-radius:999px;background:var(--la);margin-top:12px}
+.pg i{display:block;font-style:normal}
+.m-top{height:14px;border-radius:6px;background:var(--la);margin-bottom:10px}
+.m-hd{display:flex;gap:10px;align-items:center}.m-hd i{width:22px;height:6px;border-radius:3px;background:color-mix(in srgb,var(--lf) 25%,transparent)}.m-hd .lg{width:56px;height:12px;background:var(--lf);margin-right:auto}.m-hd .ct{width:14px;height:14px;border-radius:50%;background:var(--la)}
+.m-hero{display:flex;justify-content:space-between;align-items:center;min-height:130px;gap:14px}.m-hero>div{flex:1}.orb{width:92px;height:92px;border-radius:50%;background:var(--la)}
+.m-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding-top:10px}.m-tiles i{aspect-ratio:1;border-radius:12px;background:color-mix(in srgb,var(--lf) 12%,transparent);position:relative}.m-tiles i:after{content:"";position:absolute;inset:30%;border-radius:50%;background:var(--la)}
+.m-prod{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:10px}.m-prod .im{height:64px;border-radius:10px;background:color-mix(in srgb,var(--lf) 12%,transparent)}
+.m-cmp{padding-top:10px}.m-cmp>div{display:grid;grid-template-columns:1fr 36px 36px;gap:8px;align-items:center}.m-cmp b{text-align:center;color:var(--la);font-size:13px}.m-cmp b.x{opacity:.4}
+.m-rev{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:10px}.m-rev>div{border-radius:10px;background:color-mix(in srgb,var(--lf) 8%,transparent);padding:8px}.m-rev span{color:var(--la);font-size:10px;letter-spacing:1px}
+.m-faq>div{display:flex;align-items:center;gap:10px;border-bottom:1px solid color-mix(in srgb,var(--lf) 15%,transparent)}.m-faq u{flex:1;margin:10px 0}.m-faq b{color:var(--la)}
+.m-ft{height:16px;border-radius:6px;background:var(--lf);margin-top:12px}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:72px}
+.case{position:relative;display:flex;flex-direction:column;gap:14px;padding:34px;min-height:320px;border-radius:30px;text-decoration:none;color:var(--ink);overflow:hidden;background:linear-gradient(160deg,color-mix(in srgb,var(--pri) 24%,var(--surface)),var(--surface) 70%);border:1px solid var(--line);transition:transform .25s,border-color .3s,box-shadow .3s}
+.case.alt{background:linear-gradient(160deg,color-mix(in srgb,var(--sec) 20%,var(--surface)),var(--surface) 70%)}
+.case:hover{border-color:var(--pri);box-shadow:0 40px 80px -40px var(--pri)}
+.case h3{font-size:clamp(32px,3.8vw,50px)}.case p{margin:0;color:var(--muted);max-width:36ch}
+.lv{display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+.lv:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--sec);animation:p 2s infinite}
+.ct{margin-top:auto;display:inline-flex;align-items:center;gap:14px;font:700 19px 'Bricolage Grotesque';color:var(--pri)}
+.ct i{width:50px;height:50px;border-radius:50%;background:var(--pri);color:var(--onpri);display:grid;place-items:center;font-style:normal;font-size:22px;transition:transform .3s}
+.case:hover .ct i{transform:translate(5px,-5px) rotate(10deg) scale(1.12)}
+.tdh{font-size:clamp(26px,3vw,38px);margin:0 0 24px}
+.td{display:grid;grid-template-columns:minmax(0,430px) 1fr;gap:48px;align-items:start}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;background:var(--glass);margin-bottom:14px}
+.seg button{border:0;background:transparent;color:var(--ink);padding:9px 24px;border-radius:999px;font:600 14px 'Hanken Grotesk';cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--pri);color:var(--onpri)}
+.frame{max-height:640px;overflow:auto;border:1px solid var(--line);border-radius:24px;background:var(--surface)}
+.shot{position:relative}.shot:not(.img){height:1500px}.shot img{display:block;width:100%;user-select:none}
+.mark .shot{cursor:crosshair;touch-action:none}
+.wb{position:absolute;left:4%;right:4%;border-radius:14px;padding:14px;font:600 14px 'Hanken Grotesk';display:flex;align-items:center}
+.wb.gi{background:linear-gradient(135deg,color-mix(in srgb,var(--pri) 25%,transparent),transparent),var(--glass)}
+.wb.on{background:color-mix(in srgb,var(--pri) 10%,var(--bg));border:1px solid var(--line);color:var(--ink)}
+.wb.gh{border:1px dashed var(--line);color:var(--muted);font-weight:500}
+.hl{position:absolute;border:2px solid var(--pri);background:color-mix(in srgb,var(--pri) 16%,transparent);border-radius:12px;box-shadow:0 0 0 9999px color-mix(in srgb,var(--bg) 50%,transparent);pointer-events:none;transition:all .45s cubic-bezier(.3,.8,.2,1)}
+.tupl{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.tupl .btn{padding:9px 16px;font-size:13.5px}
+.note{display:block;color:var(--muted);margin-top:10px;font-size:13.5px}
+#pos{width:100%;margin-top:10px;background:var(--glass);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px;font:12px monospace}
+@media (max-width:820px){.scene{height:auto;padding-bottom:10px}.cases,.td{grid-template-columns:1fr}.td{gap:28px}.frame{max-height:520px}.card:nth-child(n){grid-column:span 6;min-height:320px}.pg{transform:rotateY(-6deg) rotateX(2deg)}}
+@media (prefers-reduced-motion:reduce){.hl{transition:none!important}.vis:before{display:none}}
+
+@media (min-width:821px){.card:nth-child(n){grid-column:span 3;min-height:380px}}
+.btn{transition:transform .2s}
+.card:after,.mdl:after,.case:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.3),transparent 60%);mix-blend-mode:soft-light;opacity:0;transition:opacity .3s}
+.card:hover:after,.mdl:hover:after,.case:hover:after{opacity:1}
+.mdl{position:relative;overflow:hidden}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.w>span{display:inline-block;transform:translateY(108%);animation:up .95s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--k)*90ms + .15s)}
+@keyframes up{to{transform:none}}
+#prog{position:fixed;top:0;left:0;width:100%;height:3px;z-index:30;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--pri),var(--sec));pointer-events:none}
+@media (prefers-reduced-motion:reduce){.w>span{transform:none!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav><div class="wrap"><a class="logo" href="#top">Manan Khan<i>.</i></a>
+<ul><li><a href="#work">Stories</a></li><li><a href="#anatomy">Anatomy</a></li><li><a href="#cro">Conversion</a></li><li><a href="#proof">Proof</a></li><li><a href="#process">Process</a></li></ul>
+<a class="btn" href="#contact">Start a store</a></div></nav>
+
+<header class="hero" id="top">
+<div class="txt">
+<h1>Every niche gets its own storefront.</h1>
+<p>I design and build Shopify stores where the banner, category tiles, FAQ and footer all speak one visual language, then tune them to convert.</p>
+<div class="cta"><a class="btn" href="#work">See the stores</a><a class="btn ghost" href="#cro">How I lift conversion</a></div>
+</div>
+<div class="stage">
+<canvas id="c" aria-label="Rotating 3D ring of five storefront designs"></canvas>
+<div class="hint">Move your mouse or scroll to turn the ring</div>
+<div class="live"><span>In front now</span><b id="cap">Soravi</b><span id="capm" style="margin:0"></span></div>
+</div>
+</header>
+<div class="wrap nums" id="nums">
+<div><b data-n="3">0</b><span>business models: dropshipping, private label, white label</span></div>
+<div><b>Any</b><span>market, built for the customers you sell to</span></div>
+<div><b>Any</b><span>language, with a toggle that switches the whole store</span></div>
+<div><b>Many</b><span>sections, added as the brand needs, all in one visual system</span></div>
+</div>
+
+<section id="models"><div class="wrap">
+<div class="sh"><h2 class="rv">However the business is set up, the store is built around it.</h2><p>I've built stores for dropshipping, private label and white label, in niches from luxury bags to smart-home tech.</p></div>
+<div class="models">
+<div class="mdl"><h3>Dropshipping</h3><p>Fast to launch, so the page has to do the convincing. I focus on the niche, the product page and trust, so a first-time visitor believes the store.</p><div class="flow"><span>Supplier</span><i></i><span>Your store</span><i></i><span>Customer</span></div></div>
+<div class="mdl"><h3>Private label</h3><p>A brand people remember. Name, look, voice and a story that makes the product feel like yours, carried through every section.</p><div class="flow"><span>Your product</span><i></i><span>Your brand</span><i></i><span>Your store</span></div></div>
+<div class="mdl"><h3>White label</h3><p>Ready-made products dressed as a brand. A custom storefront and proof sections turn a common product into a distinct one.</p><div class="flow"><span>Ready product</span><i></i><span>Your label</span><i></i><span>Your store</span></div></div>
+</div>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+</div></section>
+<section id="work"><div class="wrap">
+<div class="sh"><h2 class="rv">Stores across niches. Tap one to read its story.</h2><p>A selection of my builds. Each has an idea behind it; open a card to see how it shows up, section by section.</p></div>
+<div class="work" id="grid"></div>
+</div></section>
+
+<section id="anatomy" class="band"><div class="wrap">
+<div class="sh"><h2 class="rv">One homepage, seven sections, one voice.</h2><p>Pick a store and watch the same structure change its clothes. Tap a layer to see its job.</p></div>
+<div class="ana">
+<div><div class="chips" id="achips"></div><div class="scene" id="scene"><div class="pg" id="pg"></div></div></div>
+<ul class="alist" id="alist"></ul>
+</div></div></section>
+
+<section id="cro"><div class="wrap">
+<div class="sh"><h2 class="rv">The conversion chapter.</h2><p>A beautiful store earns the click. A structured product page earns the order. Open two live pages, then see exactly what changed.</p></div>
+<div class="cases">
+<a class="case" href="https://myprimepicks.store/products/3-modes-shower-head" target="_blank" rel="noopener"><span class="lv">Live product page</span><h3>Prime Picks<br>3-mode shower head</h3><p>Trust strip, buy box, delivery tracker and reviews sorted by concern.</p><span class="ct">Open the live page <i>↗</i></span></a>
+<a class="case alt" href="https://noviqos.store/products/smart-visual-earwax-removal-tool-%D8%A3%D8%AF%D8%A7%D8%A9-%D8%A5%D8%B2%D8%A7%D9%84%D8%A9-%D8%B4%D9%85%D8%B9-%D8%A7%D9%84%D8%A3%D8%B0%D9%86-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9" target="_blank" rel="noopener"><span class="lv">Live product page</span><h3>Noviqo<br>Smart earwax tool</h3><p>A bilingual product page, built to answer doubts before the buy button.</p><span class="ct">Open the live page <i>↗</i></span></a>
+</div>
+<h3 class="tdh rv">Tap a row. The page shows you what changed.</h3>
+<div class="td" id="td">
+<div>
+<div class="seg" id="seg"><button aria-pressed="false" data-v="b">Before</button><button aria-pressed="true" data-v="a">After</button></div>
+<div class="frame" id="frame"><div class="shot" id="shot"></div></div>
+<div class="tupl"><label class="btn ghost">Add before screenshot<input type="file" accept="image/*" hidden data-v="b"></label><label class="btn ghost">Add after screenshot<input type="file" accept="image/*" hidden data-v="a"></label><button class="btn ghost" id="mk" aria-pressed="false">Mark mode: off</button><button class="btn ghost" id="cp">Copy positions</button></div>
+<textarea id="pos" hidden readonly rows="4" aria-label="Highlight positions"></textarea>
+<small class="note" id="note">This is a sample layout. Add your real full-page screenshots to use them as proof.</small>
+</div>
+<div class="mods" id="mods"></div>
+</div>
+</div></section>
+
+<section id="proof" class="band"><div class="wrap">
+<div class="sh"><h2 class="rv">Proof you can check.</h2><p>Landing pages and Shopify dashboards from the stores I've optimised, shown before and after.</p></div>
+<div class="chips" id="pchips"><button class="chip" aria-pressed="true" data-t="lp">Landing page</button><button class="chip" aria-pressed="false" data-t="sa">Shopify sales</button></div>
+<div id="p-lp">
+<div class="cmp" id="cmp"><div class="side bef" id="sb"><div><b>Before</b>Add your original landing page screenshot</div></div><div class="side aft" id="sa"><div><b>After</b>Add your redesigned landing page screenshot</div></div><div class="hd"></div><input class="rng" id="sl2" type="range" min="0" max="100" value="50" aria-label="Drag to compare the landing page before and after"></div>
+<div class="upl"><label class="btn ghost">Add before image<input type="file" accept="image/*" hidden data-side="#sb"></label><label class="btn ghost">Add after image<input type="file" accept="image/*" hidden data-side="#sa"></label><small>Images load only in your browser, so you can test your own screenshots.</small></div>
+</div>
+<div id="p-sa" hidden><div style="margin-top:28px"><span class="sample">Sample figures. Replace with your real Shopify numbers.</span></div><div class="dash" id="dash"></div><div class="dl" id="dl"></div></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+<div class="sh"><h2 class="rv">From brief to live store.</h2></div>
+<div class="proc">
+<div><h3>Niche study</h3><p>Who buys, in which language, and what they need to trust before paying.</p></div>
+<div><h3>One visual system</h3><p>Palette, type, shapes and motion chosen once, then applied to every section.</p></div>
+<div><h3>Build in Liquid</h3><p>Custom sections, any language with a toggle, fast on mobile.</p></div>
+<div><h3>Optimise</h3><p>Product pages reworked for trust, clarity and a one-tap path to checkout.</p></div>
+</div></div></section>
+
+<section class="end" id="contact"><div class="wrap">
+<h2>Have a niche and a product list?</h2>
+<a class="btn" href="mailto:hello@example.com">Tell me about your store</a>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Manan Khan</span><span>Faisalabad, Pakistan · working worldwide</span></div></footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Store story" tabindex="-1"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const S=[
+{n:'Soravi',k:'Luxury bags and jewellery',m:'USA',t:['English'],bg:'#EFE7DA',fg:'#1B1612',ac:'#B08D57',u:'https://soravi.online/'},
+{n:'Rawnaq',k:'Wellness and beauty',m:'Saudi Arabia',t:['English','عربي'],bg:'#E4F0EA',fg:'#103329',ac:'#2FA183',u:'https://rawnaqksa.shop/'},
+{n:'Nawa Kids',k:'Baby, toys and learning',m:'UAE',t:['English'],bg:'#FFF1CC',fg:'#1B2A66',ac:'#FF7757',u:'https://nawakids.store/'},
+{n:'Noviqo',k:'Smart gadgets and home',m:'Saudi Arabia',t:['English','عربي'],bg:'#0D1526',fg:'#EAF1FF',ac:'#4C8DFF',u:'https://noviqos.store/'},
+{n:'Nexus',k:'Everyday smart tech',m:'UAE',t:['English','عربي'],bg:'#14121C',fg:'#F5F3FF',ac:'#A78BFA',u:'https://nexus.baby/'},
+{n:'Wellora',k:'Health and wellness',m:'Saudi Arabia',t:['English','عربي'],bg:'#FBEFE4',fg:'#3A2012',ac:'#E07A3F',u:'https://welloraa.com/'}];
+const $=q=>document.querySelector(q),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const D=[
+{idea:'A quiet luxury shop for bags and jewellery. The page moves slowly and stays warm, so a $29 ring and a $763 leather travel bag both feel carefully chosen.',motif:'Soft ivory, generous space and large product photos, with no loud badges.',secs:[
+['Announcement bar','Sale, free shipping across the USA and a customer count in one calm line, so trust shows before the first scroll.'],
+['Hero banner','A wide editorial banner with its own mobile version, so the first view feels like a magazine page, not a shop shelf.'],
+['Shop by category','Bags, necklaces, earrings and new arrivals as large tiles, the way luxury shoppers browse.'],
+['Best sellers','Every product card carries two photos, so the second one can appear on hover or swipe.'],
+['New arrivals','The same card with new products, so the shopper already knows how to read it.'],
+['Reviews','A 4.8 rating with product images and short quotes beside each reviewer.'],
+['Brand story and footer','A single banner invites people to discover the brand before the footer closes the page.']]},
+{idea:'Everyday wellness for shoppers in Saudi Arabia, written in English and Arabic side by side. The store is organised around needs like posture, recovery and breathing instead of product types.',motif:'Fresh green, calm and clean, with Arabic and English treated as equals.',secs:[
+['Top bar','Offers and free delivery across KSA, each shown in both languages.'],
+['Shop by category','Five tiles with live product counts, so shoppers see how much is inside before they tap.'],
+['New arrivals','A short label such as Portable Care above each product name and a Buy Now button, so the order is one tap away.'],
+['Shop by need','A custom section asking "What are you looking for today?" that sends people to Relieve, Posture, Breathe, Personal Care or Move.'],
+['The Rawnaq Difference','A comparison table of Rawnaq against other sellers on quality, results and KSA shipping.'],
+['Bilingual FAQ','Category filters and an English/عربي toggle built in Liquid, with answers on delivery, cash on delivery and returns.'],
+['Customer stories','Quotes in Arabic and English with city names across KSA, so local shoppers see themselves.']]},
+{idea:'A toy and baby store told as a space mission for little explorers. The words, stars and rocket make browsing feel like play, while the facts parents need stay easy to find.',motif:'Stars, rockets and rounded shapes, with playful phrases like Ready for Takeoff.',secs:[
+['Top bar','An offer, a happy-family count and a "New Arrivals Just Landed" line with a rocket.'],
+['Shop by category','Toys, baby essentials, learning and family care as friendly tiles with product counts.'],
+['New arrivals','Short fun labels such as Game Time and Bath Time above each product.'],
+['Promo banners','Two banners that send parents straight to Baby Essentials and Learning.'],
+['Ready for Takeoff?','A mission-themed comparison of Nawa Kids and other brands on quality, kid-friendly design and everyday value.'],
+['Questions and answers','Plain-spoken accordions on shipping, payment, returns, child safety and tracking.'],
+['Happy Families. Big Smiles.','Verified five-star stories from parents across the UAE, then a newsletter sign-up in the footer.']]},
+{idea:'A gadget and home-tech store for Saudi Arabia, in Arabic and English throughout. It feels like a modern electronics shop: fast, clean and confident.',motif:'Deep navy and bright blue, product-first tiles and short, punchy review lines.',secs:[
+['Trust row','Free shipping, secure payments, fast delivery and support as four quick icons right under the banner.'],
+['New arrivals strip','A scrolling row of products with prices, so shoppers see the range quickly.'],
+['Shop by category','Home, cameras, charging and new arrivals as large banner tiles.'],
+['Review slider','A short headline quote per product with the full verified review beside it, in Arabic or English.'],
+['Cameras and smart gadgets','A collection strip placed after the reviews, once trust has been built.'],
+['FAQ','Questions in both languages, a side image and a "still have questions?" contact card.'],
+['Footer','Quick links, policies and payment methods.']]},
+{idea:'Smart tech for a better life in the UAE. The store sells simple everyday gadgets with a premium, technical look.',motif:'Dark with glowing violet accents, and headlines that mix roman and italic type.',secs:[
+['Top bar','Discount, customer count and free delivery across the UAE.'],
+['Find What Fits Your Life','Category tiles for power, smart home, car and travel, plus new arrivals.'],
+['Smart Tech for a Better You','A product grid with struck-through prices that show the saving on each item.'],
+['Tech comparison','Nexus against other brands on power, connectivity, battery and build.'],
+['Featured product','The Nexus Q8 4K gimbal camera, with quantity and add to cart right on the home page.'],
+['Bilingual FAQ','English and Arabic with a language toggle, covering shipping, warranty, returns and support.'],
+['Trusted by Thousands','A 4.8 out of 5 rating based on 1,200+ verified reviews, shown beside the review cards.']]},
+{idea:'A health and wellness store for Saudi Arabia, built around recovery, posture and everyday comfort. Every product is named in English and Arabic, and the page keeps the offer front and centre.',motif:'Clean and calm, with the 30% saving and the Buy Now button never far from the eye.',secs:[
+['Scrolling top bar','Up to 30% off in English and Arabic, plus the customer count, looping across the very top.'],
+['Hero banner slider','Five banner slides, each linking straight to the product it shows.'],
+['New arrivals','Every card shows the 30% badge, the old and new price and a Buy Now button.'],
+['Featured carousel','Product tiles with a Shop Now button, so browsing and buying stay in one place.'],
+['Trust row','Free shipping, secure payments, a 13-month warranty and a customer count in one strip.'],
+['Why choose Wellora','A comparison table against other sellers on comfort, quality and versatility.'],
+['Collections and video cards','Collections for posture, recovery, personal care and home fitness, then product video cards with Buy now.']]}];
+// cards
+const g=$('#grid');
+S.forEach((s,i)=>{const b=document.createElement('div');b.className='card';b.style.background=s.bg;b.style.color=s.fg;
+b.innerHTML=`<span class="blob" style="background:${s.ac}"></span><div class="tags">${[s.m,...s.t].filter(Boolean).map(x=>`<span>${x}</span>`).join('')}</div><div><div class="nm">${s.n}</div><div class="meta">${s.k}</div><div class="acts"><button class="read" type="button">Read the story</button><a class="vis" href="${s.u}" target="_blank" rel="noopener" style="background:${s.ac};color:${s.bg}">Visit online store ↗</a></div></div>`;
+b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;b.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg)`});
+b.addEventListener('pointerleave',()=>b.style.transform='');
+b.onclick=e=>{if(e.target.closest('.vis'))return;const r=b.getBoundingClientRect();openStory(i,e.detail?e.clientX:r.left+r.width/2,e.detail?e.clientY:r.top+r.height/2,b)};g.appendChild(b)});
+// story overlay
+const ov=$('#ov');let cur=0,lastF=null,tm;
+function render(i){const s=S[i],d=D[i];cur=i;ov.style.setProperty('--b',s.bg);ov.style.setProperty('--f',s.fg);ov.style.setProperty('--a',s.ac);
+ov.innerHTML=`<button class="ovx" aria-label="Close story">✕</button><div class="ovi"><div class="l"><p class="mk" style="--d:0">${[s.k,s.m].filter(Boolean).join(' · ')}${s.t.length>1?' · '+s.t.join(' and '):''}</p><h2 style="--d:1">${s.n}</h2><p class="lead" style="--d:2">${d.idea}</p><p class="mot" style="--d:3">${d.motif}</p><div class="sw" style="--d:4">${[s.bg,s.fg,s.ac].map(c=>`<i style="background:${c}" title="${c}"></i>`).join('')}</div><div class="ovr" style="--d:5"><a class="btn" style="background:${s.ac};color:${s.bg}" href="${s.u}" target="_blank" rel="noopener">Visit the live store</a><button class="btn ghost" data-go="1">Next story</button></div></div><ol class="secs">${d.secs.map((x,k)=>`<li style="--i:${k}"><b>${x[0]}</b><span>${x[1]}</span></li>`).join('')}</ol></div>`}
+function openStory(i,x,y,from){lastF=from;clearTimeout(tm);ov.style.setProperty('--x',x+'px');ov.style.setProperty('--y',y+'px');ov.classList.remove('open','closing');render(i);void ov.offsetWidth;ov.classList.add('open');document.body.style.overflow='hidden';ov.scrollTop=0;ov.focus({preventScroll:true})}
+function closeStory(){ov.classList.add('closing');tm=setTimeout(()=>{ov.classList.remove('open','closing');document.body.style.overflow='';lastF&&lastF.focus()},RM?0:460)}
+ov.addEventListener('click',e=>{if(e.target.closest('.ovx'))closeStory();else if(e.target.closest('[data-go]')){ov.classList.remove('open');render((cur+1)%S.length);ov.scrollTop=0;void ov.offsetWidth;ov.classList.add('open')}});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&ov.classList.contains('open'))closeStory()});
+// in-view helpers
+function onView(el,fn,t=.35){new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){o.disconnect();fn(e.target)}}),{threshold:t}).observe(el)}
+document.querySelectorAll('.rv').forEach(el=>onView(el,x=>x.classList.add('in'),.2));
+document.querySelectorAll('[data-n]').forEach(el=>onView(el,x=>{const n=+x.dataset.n,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/(RM?1:1400));x.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)}));
+// anatomy
+const A=[['Header and top bar','Offer, delivery and trust in the first 40 pixels, set in the store\'s own type.'],['Hero banner','The one image that tells the niche before anyone reads. Every later section borrows its colours and shapes.'],['Category tiles','Large, easy to tap and named in the customer\'s own words.'],['Featured collection','Product cards that share one shape, one price style and one button.'],['Comparison block','Answers "why you and not the cheaper shop" in a few short rows.'],['Reviews','Voices in the languages and cities of the buyers.'],['FAQ and footer','Objections answered, policies one tap away and a calm finish.']];
+const MINI=['<div class="m-top"></div><div class="m-hd"><i class="lg"></i><i></i><i></i><i></i><i class="ct"></i></div>','<div class="m-hero"><div><u class="h1"></u><u class="h1 s"></u><u class="p"></u><u class="bt"></u></div><i class="orb"></i></div>','<div class="m-tiles"><i></i><i></i><i></i><i></i></div>','<div class="m-prod">'+'<div><i class="im"></i><u class="p"></u><u class="pr"></u></div>'.repeat(3)+'</div>','<div class="m-cmp"><u class="p"></u>'+'<div><u></u><b>✓</b><b class="x">–</b></div>'.repeat(3)+'</div>','<div class="m-rev">'+'<div><span>★★★★★</span><u></u><u class="s"></u></div>'.repeat(3)+'</div>','<div class="m-faq">'+'<div><u></u><b>+</b></div>'.repeat(3)+'<div class="m-ft"></div></div>'];
+const pg=$('#pg'),al=$('#alist'),ac=$('#achips');let st=3,ly=1;
+S.forEach((s,i)=>{const c=document.createElement('button');c.className='chip';c.dataset.s=i;c.textContent=s.n;c.onclick=()=>{st=i;paint()};ac.appendChild(c)});
+const exb=document.createElement('button');exb.className='chip';exb.textContent='Explode view';exb.setAttribute('aria-pressed','false');exb.onclick=()=>{const on=!pg.classList.contains('exp');pg.classList.toggle('exp',on);exb.setAttribute('aria-pressed',on)};ac.appendChild(exb);
+A.forEach((a,k)=>{const d=document.createElement('div');d.className='sc';d.style.setProperty('--i',k);d.innerHTML=MINI[k]+`<span class="tag">${a[0]}</span>`;d.onclick=()=>{ly=k;paint()};pg.appendChild(d);
+const b=document.createElement('button');b.className='ai';b.innerHTML=`<b>${a[0]}</b><small>${a[1]}</small>`;b.onclick=()=>{ly=k;paint()};al.appendChild(document.createElement('li')).appendChild(b)});
+function paint(){const s=S[st];pg.style.setProperty('--lb',s.bg);pg.style.setProperty('--lf',s.fg);pg.style.setProperty('--la',s.ac);pg.classList.add('has');
+ac.querySelectorAll('[data-s]').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.s===st));[...pg.children].forEach((l,k)=>l.classList.toggle('sel',k===ly));al.querySelectorAll('.ai').forEach((b,k)=>b.setAttribute('aria-pressed',k===ly))}
+paint();
+onView(pg,()=>{if(RM)return;pg.classList.add('exp');setTimeout(()=>{pg.classList.remove('exp');exb.setAttribute('aria-pressed','false')},2000)},.3);
+$('#scene').addEventListener('pointermove',e=>{if(RM)return;const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;pg.style.transform=`rotateY(${-14+x*16}deg) rotateX(${4-y*8}deg)`});
+// CRO teardown
+const MD=[['Trust strip','Free UAE delivery, a money-back guarantee and a one-year warranty box sit above and beside the price.','Buyers who doubt a new store need reassurance before they scroll, not after.','Add-to-cart rate and bounce rate on product pages.'],
+['Buy box','Customer faces with a count, a struck-through price with the saving, three icon benefits and one clear Add to cart.','The decision area answers what it is, what it costs and why it is good, with no scrolling.','Add-to-cart rate.'],
+['Delivery tracker','Three steps under the button: Ordered, Order ready, Delivered.','It shows what happens after paying, which lowers the fear of buying from a store people do not know.','Checkout start rate.'],
+['Explain the problem','A section on hard water and what it does to skin and hair comes before the filter stages.','People buy when they understand the problem the product solves.','Scroll depth and add-to-cart after the scroll.'],
+['Reviews by concern','Five chips, dry skin, frizz, brittle hair, shedding and flaky scalp, each with matching stories.','Visitors find someone who had their exact problem.','Chip clicks and the conversion of those sessions.'],
+['Objection FAQ','Questions like why choose this over cheaper options, does it fit any shower and how long a filter lasts.','Hesitant visitors end up at the bottom, so the last doubts get answered there.','Checkout starts after an FAQ is opened.']];
+const FR=$('#frame'),SH=$('#shot'),mods=$('#mods');let view='a',sel=0,mark=false,IMG={a:null,b:null},tour;
+const DEF=[[0,0,100,6],[0,30,100,16],[0,47,100,7],[0,55,100,12],[0,68,100,16],[0,85,100,13]];
+const SP={a:DEF.map(x=>[...x]),b:DEF.map(x=>[...x])};
+function wire(v){let h='<div class="wb gi" style="top:7%;height:22%"></div>';MD.forEach((m,i)=>{const d=DEF[i];h+=v==='a'?`<div class="wb on" style="top:${d[1]}%;height:${d[3]}%">${m[0]}</div>`:`<div class="wb gh" style="top:${d[1]}%;height:${d[3]}%">${i===1?'Title, price, Add to cart':'Missing: '+m[0]}</div>`});return h}
+function hl(sc=true){const b=$('#hl');if(!b)return;const p=SP[view][sel];b.style.cssText=`left:${p[0]}%;top:${p[1]}%;width:${p[2]}%;height:${p[3]}%`;if(sc)FR.scrollTo({top:Math.max(0,SH.offsetHeight*p[1]/100-70),behavior:RM?'auto':'smooth'})}
+function shot(sc){SH.classList.toggle('img',!!IMG[view]);SH.innerHTML=(IMG[view]?`<img src="${IMG[view]}" alt="${view==='a'?'After':'Before'} product page screenshot" draggable="false">`:wire(view))+'<div class="hl" id="hl"></div>';hl(sc)}
+function seg(v){view=v;[...$('#seg').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));shot(true)}
+MD.forEach((m,i)=>{const b=document.createElement('button');b.className='mod';b.innerHTML=`<b>${m[0]}</b><div class="dt"><p><b>What changed: </b>${m[1]}</p><p><b>Why it works: </b>${m[2]}</p><p><b>What I track: </b>${m[3]}</p></div>`;b.onclick=()=>{stop();pick(i)};mods.appendChild(b)});
+function pick(i,sc=true){sel=i;[...mods.children].forEach((b,j)=>b.setAttribute('aria-expanded',i===j));hl(sc)}
+function stop(){clearInterval(tour)}
+$('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b){stop();seg(b.dataset.v)}});
+document.querySelectorAll('.tupl input').forEach(inp=>inp.onchange=()=>{const f=inp.files[0];if(!f)return;stop();IMG[inp.dataset.v]=URL.createObjectURL(f);$('#note').textContent='Showing your screenshot. To fit a highlight to it, turn on Mark mode, tap a row, then drag a box on the image.';seg(inp.dataset.v)});
+$('#mk').onclick=e=>{stop();mark=!mark;e.currentTarget.setAttribute('aria-pressed',mark);e.currentTarget.textContent='Mark mode: '+(mark?'on':'off');$('#td').classList.toggle('mark',mark)};
+$('#cp').onclick=()=>{const t=JSON.stringify(SP),ta=$('#pos');ta.hidden=false;ta.value=t;ta.select();try{navigator.clipboard.writeText(t)}catch(e){}};
+let drag=null;const pcx=e=>{const r=SH.getBoundingClientRect();return[Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100)),Math.max(0,Math.min(100,(e.clientY-r.top)/r.height*100))]};
+SH.addEventListener('pointerdown',e=>{if(!mark)return;e.preventDefault();drag=pcx(e);SH.setPointerCapture(e.pointerId)});
+SH.addEventListener('pointermove',e=>{if(!drag)return;const q=pcx(e),X=Math.min(drag[0],q[0]),Y=Math.min(drag[1],q[1]);SP[view][sel]=[+X.toFixed(1),+Y.toFixed(1),+Math.abs(q[0]-drag[0]).toFixed(1),+Math.abs(q[1]-drag[1]).toFixed(1)];hl(false)});
+SH.addEventListener('pointerup',()=>{drag=null});
+shot(false);pick(0,false);
+onView($('#td'),()=>{if(RM)return;tour=setInterval(()=>pick((sel+1)%MD.length),2800)},.4);
+document.querySelectorAll('.case').forEach(c=>{c.addEventListener('pointermove',e=>{if(RM)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(1000px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+
+// models marquee
+const NI=['Luxury bags and jewellery','Wellness and beauty','Baby and toys','Smart gadgets','Home tech','Car and travel','Streetwear'];
+$('#mq').innerHTML=[...NI,...NI].map(x=>`<span>${x}</span>`).join('');
+// proof
+const PROOF={before:{range:'Before · 30 days',aov:38,cr:1.1,series:[120,140,110,150,130,160,125,145,135,170,140,155,150,165]},after:{range:'After · 30 days',aov:44,cr:2.3,series:[150,190,230,260,240,310,330,300,360,390,370,420,450,480]}};
+const sum=a=>a.reduce((x,y)=>x+y,0),mx=Math.max(...PROOF.before.series,...PROOF.after.series);
+const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+function chart(sr){const n=sr.length,pts=sr.map((v,i)=>[i*300/(n-1),112-v/mx*100]);const l=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+return `<svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><g stroke="currentColor" opacity=".12"><path d="M0 12H300M0 62H300M0 112H300"/></g><path d="${l} L300 112 L0 112Z" fill="var(--pri)" opacity=".14"/><path class="ln" d="${l}" fill="none" stroke="var(--pri)" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>`}
+const dash=$('#dash'),pf=['before','after'].map(k=>{const d=PROOF[k],s=sum(d.series)*1,o=Math.round(s/d.aov);return{...d,s,o}});
+['before','after'].forEach((k,i)=>{const d=pf[i];dash.insertAdjacentHTML('beforeend',`<div class="dc ${i?'af':''}"><h4>${d.range}</h4><div class="big">${money(d.s)}</div><h4>Total sales</h4>${chart(d.series)}<div class="tiles"><div class="tile"><b>${d.o}</b><span>Orders</span></div><div class="tile"><b>${d.cr}%</b><span>Conversion rate</span></div><div class="tile"><b>${money(d.aov)}</b><span>Average order value</span></div></div><div class="wm">SAMPLE</div></div>`)});
+const pc=(a,b)=>'+'+Math.round((b/a-1)*100)+'%';
+$('#dl').innerHTML=[['Total sales',pc(pf[0].s,pf[1].s)],['Orders',pc(pf[0].o,pf[1].o)],['Conversion rate',pc(pf[0].cr,pf[1].cr)],['Average order value',pc(pf[0].aov,pf[1].aov)]].map(x=>`<span>${x[0]} <b class="up">${x[1]}</b></span>`).join('');
+const lns=[...dash.querySelectorAll('.ln')];lns.forEach(p=>{const L=p.getTotalLength?p.getTotalLength():600;p.style.strokeDasharray=L;p.style.strokeDashoffset=RM?0:L;p.dataset.l=L});
+function draw(){lns.forEach(p=>{p.style.transition=RM?'none':'stroke-dashoffset 1.8s cubic-bezier(.3,.7,.2,1)';p.style.strokeDashoffset=0})}
+let drawn=false;
+$('#pchips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;[...$('#pchips').children].forEach(c=>c.setAttribute('aria-pressed',c===b));$('#p-lp').hidden=b.dataset.t!=='lp';$('#p-sa').hidden=b.dataset.t!=='sa';if(b.dataset.t==='sa'&&!drawn){drawn=true;lns.forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=RM?0:L});requestAnimationFrame(()=>requestAnimationFrame(draw))}});
+$('#sl2').addEventListener('input',e=>$('#cmp').style.setProperty('--p',e.target.value));
+document.querySelectorAll('.upl input').forEach(inp=>inp.onchange=()=>{const f=inp.files[0];if(!f)return;const el=$(inp.dataset.side);el.style.backgroundImage=`url(${URL.createObjectURL(f)})`;el.classList.add('has')});
+
+// final polish animations
+document.querySelectorAll('.hero h1').forEach(h=>{h.innerHTML=h.textContent.trim().split(/\s+/).map((w,k)=>`<span class="w"><span style="--k:${k}">${w}</span></span>`).join(' ')});
+const HOV=matchMedia('(hover:hover)').matches,PR=$('#prog');let mb=null;
+addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;PR.style.transform=`scaleX(${m>0?Math.min(1,scrollY/m):0})`},{passive:true});
+document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('.card,.mdl,.case');if(t){const r=t.getBoundingClientRect();t.style.setProperty('--mx',e.clientX-r.left+'px');t.style.setProperty('--my',e.clientY-r.top+'px')}
+if(RM||!HOV)return;const b=e.target.closest&&e.target.closest('.btn,.vis');if(mb&&mb!==b){mb.style.transform='';mb=null}if(!b)return;mb=b;const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
+// 3D
+(function(){
+const cv=document.getElementById('c');if(!window.THREE){return}
+const T=THREE,r=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));
+const sc=new T.Scene(),cam=new T.PerspectiveCamera(42,1,.1,50);cam.position.set(0,.4,8.2);
+const grp=new T.Group();sc.add(grp);
+function tex(s){const W=512,H=704,x=document.createElement('canvas');x.width=W;x.height=H;const c=x.getContext('2d');
+c.beginPath();c.roundRect(0,0,W,H,36);c.clip();c.fillStyle=s.bg;c.fillRect(0,0,W,H);
+c.fillStyle=s.fg;c.globalAlpha=.9;c.fillRect(34,34,120,14);c.globalAlpha=.25;c.fillRect(W-170,34,40,14);c.fillRect(W-120,34,40,14);c.globalAlpha=1;
+c.fillStyle=s.ac;c.beginPath();c.arc(W-90,250,150,0,7);c.fill();
+c.fillStyle=s.fg;c.font='800 74px system-ui,sans-serif';c.textBaseline='top';c.fillText(s.n,34,120);
+c.globalAlpha=.7;c.font='500 26px system-ui,sans-serif';c.fillText(s.k,34,210);c.globalAlpha=1;
+for(let i=0;i<3;i++){c.fillStyle=s.fg;c.globalAlpha=.12;c.beginPath();c.roundRect(34+i*152,430,140,170,20);c.fill();c.globalAlpha=1;c.fillStyle=s.ac;c.beginPath();c.arc(104+i*152,500,34,0,7);c.fill()}
+c.fillStyle=s.fg;c.beginPath();c.roundRect(34,636,200,30,15);c.fill();
+const t=new T.CanvasTexture(x);t.anisotropy=4;return t}
+const M=S.map((s,i)=>{const m=new T.Mesh(new T.PlaneGeometry(2.2,3.02),new T.MeshBasicMaterial({map:tex(s),transparent:true,side:T.FrontSide}));
+const a=i/S.length*Math.PI*2;m.userData.a=a;m.position.set(Math.sin(a)*3.7,0,Math.cos(a)*3.7);m.rotation.y=a;grp.add(m);return m});
+const ring=new T.Mesh(new T.RingGeometry(3.6,3.64,96),new T.MeshBasicMaterial({color:0x22D3EE,transparent:true,opacity:.55,side:T.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=-2;grp.add(ring);
+const ring2=ring.clone();ring2.scale.setScalar(.6);ring2.material=ring.material.clone();ring2.material.opacity=.25;grp.add(ring2);
+const pts=new T.BufferGeometry(),N=260,p=new Float32Array(N*3);for(let i=0;i<N*3;i++)p[i]=(Math.random()-.5)*16;pts.setAttribute('position',new T.BufferAttribute(p,3));
+const dust=new T.Points(pts,new T.PointsMaterial({color:0xA3E635,size:.025,transparent:true,opacity:.6}));sc.add(dust);
+let mx=0,my=0,sy=0,rot=0;const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+addEventListener('scroll',()=>sy=scrollY);
+function size(){const w=cv.clientWidth,h=cv.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;
+cam.position.set(0,innerWidth<820?1.4:.6,Math.max(10,Math.min(22,13.8/cam.aspect)));cam.lookAt(0,-.1,0);cam.updateProjectionMatrix()}
+addEventListener('resize',size);size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);
+const cap=document.getElementById('cap'),capm=document.getElementById('capm');let last=-1;
+function tick(t){requestAnimationFrame(tick);t*=.001;rot+=reduce?.0012:.0035;
+const R=rot+sy*.0025+mx*.6;grp.rotation.y=R;grp.rotation.x=-.1+my*.12;
+M.forEach((m,i)=>{m.position.y=reduce?0:Math.sin(t*1.2+i)*.12});
+dust.rotation.y=t*.02;
+let best=0,bd=9;M.forEach((m,i)=>{const d=Math.abs(((m.userData.a+R+Math.PI)%(Math.PI*2)+Math.PI*2)%(Math.PI*2)-Math.PI);if(d<bd){bd=d;best=i}});
+if(best!==last){last=best;cap.textContent=S[best].n;capm.textContent=[S[best].k,S[best].m].filter(Boolean).join(' · ')}
+r.render(sc,cam)}
+requestAnimationFrame(tick)})();
+</script>
+</body>
+</html>
