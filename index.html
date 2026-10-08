@@ -502,8 +502,8 @@ const M=S.map((s,i)=>{const m=new T.Mesh(new T.PlaneGeometry(2.2,3.02),new T.Mes
 const a=i/S.length*Math.PI*2;m.userData.a=a;m.position.set(Math.sin(a)*3.7,0,Math.cos(a)*3.7);m.rotation.y=a;grp.add(m);return m});
 const ring=new T.Mesh(new T.RingGeometry(3.6,3.64,96),new T.MeshBasicMaterial({color:0x22D3EE,transparent:true,opacity:.55,side:T.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=-2;grp.add(ring);
 const ring2=ring.clone();ring2.scale.setScalar(.6);ring2.material=ring.material.clone();ring2.material.opacity=.25;grp.add(ring2);
-const pts=new T.BufferGeometry(),N=260,p=new Float32Array(N*3);for(let i=0;i<N*3;i++)p[i]=(Math.random()-.5)*16;pts.setAttribute('position',new T.BufferAttribute(p,3));
-const dust=new T.Points(pts,new T.PointsMaterial({color:0xA3E635,size:.025,transparent:true,opacity:.6}));sc.add(dust);
+const pts=new T.BufferGeometry(),N=420,p=new Float32Array(N*3);for(let i=0;i<N*3;i++)p[i]=(Math.random()-.5)*16;pts.setAttribute('position',new T.BufferAttribute(p,3));
+const dust=new T.Points(pts,new T.PointsMaterial({color:0xA3E635,size:2.4*r.getPixelRatio(),sizeAttenuation:false,transparent:true,opacity:.8}));sc.add(dust);
 let mx=0,my=0,sy=0,rot=0;const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
 addEventListener('scroll',()=>sy=scrollY);
